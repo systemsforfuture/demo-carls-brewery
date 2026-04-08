@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carls Brewery Stuttgart - Authentische Deutsche Küche</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #C8A97E;
+            --dark-bg: #0a0a0a;
+            --medium-bg: #111111;
+            --text-color: #ffffff;
+            --heading-font: 'Cormorant Garamond', serif;
+            --body-font: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-dark {
+            background-color: var(--dark-bg);
+        }
+
+        .section-medium {
+            background-color: var(--medium-bg);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: transparent;
+            z-index: 1000;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav.scrolled {
+            background-color: var(--dark-bg);
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-logo {
+            font-family: var(--heading-font);
+            font-size: 2.2em;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-left: 5%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-right: 5%;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-family: var(--body-font);
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button-nav {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button-nav:hover {
+            background-color: var(--text-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-N_Y88TWmGwA?w=1200&h=800&fit=crop&q=80&auto=format');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.9) 55%, rgba(10, 10, 10, 0) 45%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero-text {
+            flex: 0 0 55%;
+            padding-right: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .cta-button-hero {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button-hero:hover {
+            background-color: var(--text-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .cta-button-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .stats-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 17, 17, 0.8);
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--medium-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-image: url('https://images.unsplash.com/photo-26T6EAsQCiA?w=1200&h=800&fit=crop&q=80&auto=format');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 0;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.85);
+            z-index: 1;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-content blockquote {
+            font-size: 2.2em;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .quote-content blockquote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .quote-content footer {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 0 0 45%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .about-text {
+            flex: 0 0 55%;
+        }
+
+        .about-text h2 {
+            font-size: 3em;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--medium-bg);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-form h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--medium-bg);
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-family: var(--body-font);
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--text-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .contact-map {
+            flex: 1;
+            background-color: var(--medium-bg);
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-map h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            padding: 60px 0;
+            border-top: 1px solid var(--medium-bg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1em;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 2.5em;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-info p {
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact-info a {
+            color: var(--text-color);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid var(--medium-bg);
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--medium-bg);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+            z-index: 1001;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(100%);
+            transition: transform 0.5s ease-out;
+        }
+
+        .cookie-banner.visible {
+            transform: translateY(0);
+        }
+
+        .cookie-banner p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+        }
+
+        .cookie-banner a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .cookie-banner button {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .cookie-banner button:hover {
+            background-color: var(--text-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none; /* Hidden by default, shown by JS */
+            }
+
+            .nav-menu-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 2em;
+                color: var(--text-color);
+                margin-right: 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5em;
+            }
+
+            .hero-text p {
+                font-size: 1.2em;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 0;
+            }
+
+            .about-grid, .contact-grid {
+                flex-direction: column;
+            }
+
+            .about-image, .about-text, .contact-form, .contact-map {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+
+            .about-image {
+                margin-bottom: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .cookie-banner button {
+                margin-top: 15px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 3em;
+            }
+
+            .hero-text p {
+                font-size: 1.1em;
+            }
+
+            .quote-content blockquote {
+                font-size: 1.8em;
+            }
+        }
+
+        /* Fade-in on Scroll */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hamburger Menu Styles */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background-color: var(--dark-bg);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            transition: right 0.5s ease-in-out;
+            z-index: 1002;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-nav.open {
+            right: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 25px;
+        }
+
+        .mobile-nav a {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .mobile-nav .cta-button-nav {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 700;
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .sticky-cta-bar.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-bar a {
+            color: var(--dark-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="main-nav">
+        <div class="nav-logo">Carls Brewery</div>
+        <ul class="nav-links">
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <button class="cta-button-nav" onclick="window.location.href='#contact';">Reservieren</button>
+        <div class="nav-menu-icon">&#9776;</div>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Willkommen im Carls Brewery</h1>
+                <p>Erleben Sie authentische deutsche Braukunst und herzhafte Küche im Herzen von Stuttgart.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button-hero" onclick="window.location.href='#contact';">Jetzt Tisch reservieren</button>
+                    <button class="cta-button-outline" onclick="window.location.href='#services';">Unsere Spezialitäten</button>
+                </div>
+            </div>
+        </div>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Jahre Erfahrung</p>
+            </div>
+            <div class="stat-item">
+                <h3>10.000+</h3>
+                <p>Zufriedene Gäste</p>
+            </div>
+            <div class="stat-item">
+                <h3>4.5<span>⭐</span></h3>
+                <p>Google Bewertung</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section section-dark fade-in">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 60px;">Unsere Leistungen</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    <h3>Braukunst</h3>
+                    <p>Genießen Sie unser handgefertigtes Bier, gebraut nach traditionellen Rezepten für höchsten Genuss.</p>
+                </div>
+                <div class="service-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    <h3>Kulinarik</h3>
+                    <p>Entdecken Sie die Vielfalt der deutschen Küche mit frischen, regionalen Zutaten.</p>
+                </div>
+                <div class="service-card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    <h3>Events</h3>
+                    <p>Perfekt für Firmenfeiern, Geburtstage oder gesellige Abende mit Freunden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section fade-in">
+        <div class="quote-content">
+            <blockquote>
+                "Ein Stück bayerische Gemütlichkeit mitten in Stuttgart. Das Bier ist exzellent und das Essen ein Traum!"
+            </blockquote>
+            <footer>- Zufriedener Gast</footer>
+        </div>
+    </section>
+
+    <section id="about" class="section section-medium fade-in">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-kcA-c3f_3FE?w=1200&h=800&fit=crop&q=80&auto=format" alt="Carls Brewery Innenraum">
+            </div>
+            <div class="about-text">
+                <h2>Unsere Geschichte</h2>
+                <p>Seit über 15 Jahren steht das Carls Brewery für authentische deutsche Braukunst und herzhafte Gastlichkeit. Gegründet mit der Leidenschaft für traditionelles Handwerk und dem Wunsch, eine Brücke zwischen Bayern und Schwaben zu schlagen, haben wir uns zu einem beliebten Treffpunkt in Stuttgart entwickelt.</p>
+                <p>Unsere Philosophie ist einfach: Hochwertige Zutaten, sorgfältig gebrautes Bier und eine Atmosphäre, in der sich jeder wie zu Hause fühlt. Wir laden Sie ein, Teil unserer Geschichte zu werden und die einzigartige Verbindung von Tradition und Moderne zu erleben.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-dark fade-in">
+        <div class="container contact-grid">
+            <div class="contact-form">
+                <h2>Kontakt & Reservierung</h2>
+                <form id="reservation-form">
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+                    <textarea id="message" name="message" placeholder="Ihre Nachricht oder Sonderwünsche" required></textarea>
+                    <button type="submit">Senden</button>
+                </form>
+            </div>
+            <div class="contact-map">
+                <h2>Besuchen Sie uns</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.77108458812!2d9.18608151231571!3d48.78097630100499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db4f2b2e44b1%3A0x1f2c3d4e5f6a7b8c!2sCarls%20Brauhaus%20Stuttgart!5e0!3m2!1sde!2sde!4v1678886400000!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p style="margin-top: 20px; font-size: 1.1em; color: rgba(255, 255, 255, 0.8);">Carls Brewery, Musterstraße 1, 70173 Stuttgart</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Carls Brewery</div>
+                    <p class="footer-tagline">Authentische deutsche Braukunst & Küche.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Leistungen</a></li>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact-info">
+                    <h3>Kontakt</h3>
+                    <p>Telefon: <a href="tel:071125974611">0711 25974611</a></p>
+                    <p>E-Mail: <a href="mailto:stuttgart@carls-brauhaus.de">stuttgart@carls-brauhaus.de</a></p>
+                    <p>Adresse: Musterstraße 1, 70173 Stuttgart</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2023 Carls Brewery. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+        <p>Diese Website verwendet Cookies, um Ihnen das bestmögliche Erlebnis zu bieten. <a href="#">Mehr erfahren</a></p>
+        <button id="accept-cookies">Akzeptieren</button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#hero" onclick="toggleMobileMenu()">Home</a></li>
+            <li><a href="#services" onclick="toggleMobileMenu()">Leistungen</a></li>
+            <li><a href="#about" onclick="toggleMobileMenu()">Über uns</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Kontakt</a></li>
+        </ul>
+        <button class="cta-button-nav" onclick="window.location.href='#contact'; toggleMobileMenu()">Reservieren</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="sticky-cta-bar" id="sticky-cta-bar">
+        <p>Bereit für ein unvergessliches Erlebnis? <a href="#contact">Jetzt reservieren!</a></p>
+    </div>
+
+    <script>
+        const nav = document.getElementById('main-nav');
+        const mobileMenuIcon = document.querySelector('.nav-menu-icon');
+        const mobileNav = document.getElementById('mobile-nav');
+        const overlay = document.getElementById('overlay');
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+        const stickyCtaBar = document.getElementById('sticky-cta-bar');
+
+        // Navigation Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Sticky CTA Bar visibility
+            if (window.scrollY > window.innerHeight * 0.8) {
+                stickyCtaBar.classList.add('visible');
+            } else {
+                stickyCtaBar.classList.remove('visible');
+            }
+        });
+
+        // Mobile Menu Toggle
+        mobileMenuIcon.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        function toggleMobileMenu() {
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Cookie Banner
+        if (localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.style.display = 'none';
+        } else {
+            cookieBanner.style.transform = 'translateY(0)';
+        }
+
+        acceptCookiesButton.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.transform = 'translateY(100%)';
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 500);
+        });
+
+        // Fade-in on Scroll (Intersection Observer)
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Unobserve after it's visible
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        fadeElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initial check for sticky CTA bar on load
+        if (window.scrollY > window.innerHeight * 0.8) {
+            stickyCtaBar.classList.add('visible');
+        }
+
+    </script>
+</body>
+</html>
